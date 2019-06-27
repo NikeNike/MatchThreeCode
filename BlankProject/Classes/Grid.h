@@ -19,6 +19,7 @@ public:
     static Grid* createGrid(int rows, int cols);
     Block* getBlockForPosition(cocos2d::Vec2 position); // Create Grid With Rows and Cols
     Block* blocks[MAX_ROWS][MAX_COLS];
+    GridPosition addedPosition;
     
     
     Block* store_block[100];

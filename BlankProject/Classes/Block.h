@@ -11,7 +11,7 @@
 
 #include <cocos2d.h>
 #include "Global.h"
-
+using namespace cocos2d;
 
 class Block : public cocos2d::Node
 {
@@ -20,12 +20,16 @@ public:
     virtual void onEnter();
     
     
+ 
     
     static Block* createBlock(BlockType type, GridPosition gridPosition);
+   
     
     
     cocos2d::Sprite* backgroundSprite;
     cocos2d::Sprite* blockSprite;
+   
+    void remove_animation(float start_animation, float end_animation);
     
     
     // Declare In Global Class
@@ -39,6 +43,7 @@ public:
     }
     void setType(BlockType type);
     
+   
 };
 
 #endif /* _MATCH_THREE_BLOCK_H_ */

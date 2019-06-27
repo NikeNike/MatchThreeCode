@@ -26,6 +26,7 @@ Block* Block::createBlock(BlockType type, GridPosition gridPosition)
     
     return nullptr;
 }
+
 void Block::setType(BlockType type)
 {
     this->type = type;
@@ -36,17 +37,30 @@ void Block::setType(BlockType type)
     }
     
 }
+void Block::remove_animation(float start_animation, float end_animation)
+{
+    runAction(Sequence::create(MoveTo::create(1, Vec2(start_animation,end_animation)),NULL));
+}
 void Block::onEnter()
 {
     Node::onEnter();
     
     setContentSize(_BlockSize);
     setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    
-    backgroundSprite = Sprite::create("back.png");
-    backgroundSprite->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
-    backgroundSprite->setPosition(_BlockSize * 0.5f);
-    addChild(backgroundSprite, 0);
+//    if(Box_check_odd%2==0)
+//    {
+//        backgroundSprite = Sprite::create("Light_box.png");
+//    }
+//    else
+//
+//    {
+//        backgroundSprite = Sprite::create("Dark_box.png");
+//    }
+//    Box_check_odd++;
+//
+//    backgroundSprite->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+//    backgroundSprite->setPosition(_BlockSize * 0.5f);
+//    addChild(backgroundSprite, 0);
     
     blockSprite = Sprite::create(BlockTypeToFrameName[static_cast<int>(type)]);
     blockSprite->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
@@ -55,8 +69,9 @@ void Block::onEnter()
 }
 void Block::setActive(bool isActive)
 {
-//    if (isActive)
-//        backgroundSprite->setSpriteFrame("back_active.png");
-//    else
-//        backgroundSprite->setSpriteFrame("back.png");
+    //    if (isActive)
+    //        backgroundSprite->setSpriteFrame("back_active.png");
+    //    else
+    //        backgroundSprite->setSpriteFrame("back.png");
 }
+

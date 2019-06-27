@@ -29,7 +29,7 @@
 #include "Grid.h"
 #include "Global.h"
 #include "Block.h"
-
+using namespace cocos2d;
 class HelloWorld : public cocos2d::Scene
 {
 public:
@@ -39,6 +39,13 @@ public:
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
+    
+    //UI SEtup
+    Sprite* background;
+    Sprite* Character;
+    Sprite* Boster_panel;
+    Sprite* Target_panel;
+    Sprite* Moves_panel;
     
     
     Grid* grid = nullptr;

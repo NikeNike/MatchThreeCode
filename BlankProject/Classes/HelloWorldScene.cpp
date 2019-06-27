@@ -50,22 +50,40 @@ bool HelloWorld::init()
     }
     
     //Sprite *Background;
-    //Background=Sprite::create("dressup-screen-bg.png");
-    //Background->setPosition(Vec2(768/2, 1024/2));
-    //this->addChild(Background);
+    background=Sprite::create("demo-bg.png");
+    background->setPosition(Vec2(768/2, 1024/2));
+    this->addChild(background);
+    
+    Character=Sprite::create("charactor.png");
+    Character->setPosition(Vec2(130, 837));
+    this->addChild(Character);
+    
+    Moves_panel=Sprite::create("top-panel-1.png");
+    Moves_panel->setPosition(Vec2(711,972));
+    this->addChild(Moves_panel);
+    
+    Target_panel=Sprite::create("top-panel-2.png");
+    Target_panel->setPosition(Vec2(695, 821));
+    this->addChild(Target_panel);
+    
+    Boster_panel=Sprite::create("bottom-panel.png");
+    Boster_panel->setPosition(Vec2(383, 49));
+    this->addChild(Boster_panel);
     
     
+    
+
     Size screenSize = Director::getInstance()->getVisibleSize();
-    
+
     
     grid = Grid::createGrid(MAX_ROWS, MAX_COLS);
     grid->setPosition(screenSize.width * 0.5f - grid->getContentSize().width * 0.5f,
-                      screenSize.height * 0.5f - grid->getContentSize().height * 0.5f - 30);
+                      screenSize.height * 0.5f - grid->getContentSize().height * 0.5f - 125);
     addChild(grid, 1);
+    
     grid->generateRandomBlocks();
 
-    
-    
+
     //activeBlock = nullptr;
     
     
@@ -125,6 +143,7 @@ bool HelloWorld::onTouchBegan(Touch* touch, Event* event)
 // Detect swipes
 void HelloWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
 {
+    
 //    if (isBusy || grid->isBusy() || activeBlock == nullptr)
 //        return;
     

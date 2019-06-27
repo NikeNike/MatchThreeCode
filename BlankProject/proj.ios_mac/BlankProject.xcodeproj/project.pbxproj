@@ -21,7 +21,7 @@
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
 		3168EC5022C4C93B00E09C0F /* bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 3168EC3522C4C93B00E09C0F /* bomb.png */; };
 		3168EC5122C4C93B00E09C0F /* bottom-panel.png in Resources */ = {isa = PBXBuildFile; fileRef = 3168EC3622C4C93B00E09C0F /* bottom-panel.png */; };
-		3168EC5222C4C93B00E09C0F /* box.png in Resources */ = {isa = PBXBuildFile; fileRef = 3168EC3722C4C93B00E09C0F /* box.png */; };
+		3168EC5222C4C93B00E09C0F /* Light_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 3168EC3722C4C93B00E09C0F /* Light_box.png */; };
 		3168EC5322C4C93B00E09C0F /* charactor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3168EC3822C4C93B00E09C0F /* charactor.png */; };
 		3168EC5422C4C93B00E09C0F /* demo-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3168EC3922C4C93B00E09C0F /* demo-bg.png */; };
 		3168EC5522C4C93B00E09C0F /* demo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3168EC3A22C4C93B00E09C0F /* demo.png */; };
@@ -41,6 +41,8 @@
 		3168EC6322C4C93B00E09C0F /* shapes_500.png in Resources */ = {isa = PBXBuildFile; fileRef = 3168EC4C22C4C93B00E09C0F /* shapes_500.png */; };
 		3168EC6422C4C93B00E09C0F /* top-panel-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3168EC4D22C4C93B00E09C0F /* top-panel-1.png */; };
 		3168EC6522C4C93B00E09C0F /* top-panel-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3168EC4E22C4C93B00E09C0F /* top-panel-2.png */; };
+		3168EC6722C4CFBD00E09C0F /* Dark_box.png in Resources */ = {isa = PBXBuildFile; fileRef = 3168EC6622C4CFBC00E09C0F /* Dark_box.png */; };
+		3168EC6A22C4DA8A00E09C0F /* Block_Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3168EC6822C4DA8A00E09C0F /* Block_Background.cpp */; };
 		317EF36B22BB4C720023A723 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 317EF36722BB4C710023A723 /* green.png */; };
 		317EF36C22BB4C720023A723 /* orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 317EF36922BB4C720023A723 /* orange.png */; };
 		317EF36D22BB4C720023A723 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 317EF36A22BB4C720023A723 /* white.png */; };
@@ -150,7 +152,7 @@
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		3168EC3522C4C93B00E09C0F /* bomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bomb.png; sourceTree = "<group>"; };
 		3168EC3622C4C93B00E09C0F /* bottom-panel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom-panel.png"; sourceTree = "<group>"; };
-		3168EC3722C4C93B00E09C0F /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.png; sourceTree = "<group>"; };
+		3168EC3722C4C93B00E09C0F /* Light_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Light_box.png; sourceTree = "<group>"; };
 		3168EC3822C4C93B00E09C0F /* charactor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = charactor.png; sourceTree = "<group>"; };
 		3168EC3922C4C93B00E09C0F /* demo-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "demo-bg.png"; sourceTree = "<group>"; };
 		3168EC3A22C4C93B00E09C0F /* demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo.png; sourceTree = "<group>"; };
@@ -170,6 +172,9 @@
 		3168EC4C22C4C93B00E09C0F /* shapes_500.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shapes_500.png; sourceTree = "<group>"; };
 		3168EC4D22C4C93B00E09C0F /* top-panel-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-panel-1.png"; sourceTree = "<group>"; };
 		3168EC4E22C4C93B00E09C0F /* top-panel-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-panel-2.png"; sourceTree = "<group>"; };
+		3168EC6622C4CFBC00E09C0F /* Dark_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dark_box.png; sourceTree = "<group>"; };
+		3168EC6822C4DA8A00E09C0F /* Block_Background.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Block_Background.cpp; sourceTree = "<group>"; };
+		3168EC6922C4DA8A00E09C0F /* Block_Background.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Block_Background.hpp; sourceTree = "<group>"; };
 		317EF36722BB4C710023A723 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		317EF36922BB4C720023A723 /* orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange.png; sourceTree = "<group>"; };
 		317EF36A22BB4C720023A723 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
@@ -341,9 +346,10 @@
 		3168EC3422C4C93B00E09C0F /* hungry baby images */ = {
 			isa = PBXGroup;
 			children = (
+				3168EC6622C4CFBC00E09C0F /* Dark_box.png */,
 				3168EC3522C4C93B00E09C0F /* bomb.png */,
 				3168EC3622C4C93B00E09C0F /* bottom-panel.png */,
-				3168EC3722C4C93B00E09C0F /* box.png */,
+				3168EC3722C4C93B00E09C0F /* Light_box.png */,
 				3168EC3822C4C93B00E09C0F /* charactor.png */,
 				3168EC3922C4C93B00E09C0F /* demo-bg.png */,
 				3168EC3A22C4C93B00E09C0F /* demo.png */,
@@ -436,6 +442,8 @@
 				90AF1BF022BA399D00A215F2 /* Grid.cpp */,
 				90AF1BF522BA39FB00A215F2 /* Block.h */,
 				90AF1BF422BA39FB00A215F2 /* Block.cpp */,
+				3168EC6822C4DA8A00E09C0F /* Block_Background.cpp */,
+				3168EC6922C4DA8A00E09C0F /* Block_Background.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -507,6 +515,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 658C5H3MLF;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "BlankProject" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -568,7 +581,7 @@
 				3168EC5F22C4C93B00E09C0F /* fruit-4-effect-1.png in Resources */,
 				3168EC5722C4C93B00E09C0F /* fruit-1-effect-2.png in Resources */,
 				3168EC5422C4C93B00E09C0F /* demo-bg.png in Resources */,
-				3168EC5222C4C93B00E09C0F /* box.png in Resources */,
+				3168EC5222C4C93B00E09C0F /* Light_box.png in Resources */,
 				90CCCEFA22B770FA00820F93 /* dressup-screen-bg.png in Resources */,
 				90AF1C0322BA5DE800A215F2 /* pop.wav in Resources */,
 				3168EC6322C4C93B00E09C0F /* shapes_500.png in Resources */,
@@ -577,6 +590,7 @@
 				3168EC5322C4C93B00E09C0F /* charactor.png in Resources */,
 				3168EC5C22C4C93B00E09C0F /* fruit-3-effect-1.png in Resources */,
 				3168EC6022C4C93B00E09C0F /* fruit-4-effect-2.png in Resources */,
+				3168EC6722C4CFBD00E09C0F /* Dark_box.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				90AF1BFE22BA3ECE00A215F2 /* yellow.png in Resources */,
@@ -634,6 +648,7 @@
 				90AF1BF322BA399D00A215F2 /* Grid.cpp in Sources */,
 				1AF87B8A1F6F7822007BE51C /* main.m in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				3168EC6A22C4DA8A00E09C0F /* Block_Background.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,6 +685,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = 658C5H3MLF;
 				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -683,7 +699,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -704,6 +720,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = 658C5H3MLF;
 				ENABLE_BITCODE = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -716,7 +733,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",

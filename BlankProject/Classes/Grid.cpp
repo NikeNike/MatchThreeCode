@@ -9,7 +9,7 @@
 #include "Grid.h"
 #include "SimpleAudioEngine.h"
 #include "Global.h"
-
+#include "Block_Background.hpp"
 USING_NS_CC;
 
 
@@ -78,6 +78,7 @@ int Grid::findMatches(Block* block, std::vector<Block*> &matches, bool isRoot)
 
     
     GridPosition gp = block->gridPosition;
+    addedPosition=block->gridPosition;
     
     int matchcount = 1;
     int row = gp.row;
@@ -93,6 +94,7 @@ int Grid::findMatches(Block* block, std::vector<Block*> &matches, bool isRoot)
         CCLOG("%i",row);
         matchcount++;
         store_block[matchcount] = blocks[row][gp.col];
+        isVertical=false;
     }
     
     row = gp.row;
@@ -100,6 +102,7 @@ int Grid::findMatches(Block* block, std::vector<Block*> &matches, bool isRoot)
     {
         matchcount++;
         store_block[matchcount] = blocks[row][gp.col];
+        isVertical=false;
     }
     
     
@@ -120,6 +123,7 @@ int Grid::findMatches(Block* block, std::vector<Block*> &matches, bool isRoot)
     {
         matchcount++;
         store_block[matchcount] = blocks[gp.row][col];
+        isVertical=true;
         
     }
     
@@ -128,6 +132,7 @@ int Grid::findMatches(Block* block, std::vector<Block*> &matches, bool isRoot)
     {
         matchcount++;
         store_block[matchcount] = blocks[gp.row][col];
+        isVertical=true;
     }
     
     if (matchcount >= MAX_MATCHES)
@@ -137,8 +142,18 @@ int Grid::findMatches(Block* block, std::vector<Block*> &matches, bool isRoot)
             matches.push_back(store_block[i]);
         }
     }
+    
+    
+    
+    
+    if(matches.size()==4)
+    {
+         CCLOG("matchcount Counter %ld",matches.size());
+        SliderBooster=true;
+    }
 
-
+    
+          
     return matches.size();
 }
 
@@ -247,6 +262,16 @@ void Grid::generateRandomBlocks()
     {
         for (int row = 0; row < MAX_ROWS; row++)
         {
+            
+            
+            Block_Background* block_bg = Block_Background::createBgBlock();
+            
+            block_bg->setPosition(row * _BlockSize.width + _BlockSize.width * 0.5f,
+                                  col * _BlockSize.height + _BlockSize.height * 0.5f);
+            
+            addChild(block_bg, -1);
+            
+            
             Block* block = Block::createBlock((BlockType)random((int)BlockType::APPLE, (int)BlockType::ORANGE), {row, col});
             
             // Make sure there are no initial groups of matches
@@ -260,30 +285,52 @@ void Grid::generateRandomBlocks()
             
             addChild(block, 1);
             blocks[row][col] = block;
+            
+      
+            
         }
     }
 }
 
 void Grid::removeBlockAt(GridPosition pos)
 {
+    std::vector<Block*> addedBlocks;
+    
     Block* block = blocks[pos.row][pos.col];
     if (block)
     {
         blocks[pos.row][pos.col] = nullptr;
         //block->explode();
-        removeChild(block, true);
+        block->remove_animation(130, 837);
+        Block* block = Block::createBlock((BlockType)random((int)BlockType::APPLE, (int)BlockType::ORANGE), {row, new_col});
+        
+//        Vec2 newPosition = Vec2(row * _BlockSize.width + _BlockSize.width * 0.5f,
+                                new_col * _BlockSize.height + _BlockSize.height * 0.5f);
+        
+        block->setPositionX(pos.row);
+        block->setPositionY(getContentSize().height + (pos.col) * _BlockSize.height * 0.5f);
+        block->gridPosition = {pos.row, pos.col};
+        block->runAction(EaseBounceOut::create(MoveTo::create(0.7f, pos)));
+        
+        addChild(block, 1);
+       blocks[pos.row][pos.col] = block;
+        addedBlocks.push_back(block);
+    
+//        removeChild(block, true);
+        
     }
 }
 void Grid::fillBlanks()
 {
     std::vector<Block*> addedBlocks;
     
+   
     for (int row = 0; row < MAX_ROWS; row++)
     {
         int blanks = 0;
         
         // Find blank spots for the column
-        for (int col = 0; col < MAX_COLS; col++)
+       /* for (int col = 0; col < MAX_COLS; col++)
         {
             if (blocks[row][col] == nullptr)
             {
@@ -302,29 +349,54 @@ void Grid::fillBlanks()
                 
                 addedBlocks.push_back(blocks[row][new_col]);
             }
-        }
+        }*/
         
         // Add new blocks to fill the missing ones
         while(blanks--)
         {
             int new_col = MAX_COLS - blanks - 1;
             
-            Block* block = Block::createBlock((BlockType)random((int)BlockType::APPLE, (int)BlockType::ORANGE), {row, new_col});
+            if(SliderBooster)
+            {
+                SliderBooster=false;
+                
+                Block* block = Block::createBlock(BlockType::VERTICAL_BOOSTER, {row, new_col});
+                
+                Vec2 newPosition = Vec2(row * _BlockSize.width + _BlockSize.width * 0.5f,
+                                        new_col * _BlockSize.height + _BlockSize.height * 0.5f);
+                
+                block->setPositionX(newPosition.x);
+                block->setPositionY(getContentSize().height + (MAX_COLS - blanks) * _BlockSize.height * 0.5f);
+                block->gridPosition = {row, new_col};
+                block->runAction(EaseBounceOut::create(MoveTo::create(0.7f, newPosition)));
+                
+                addChild(block, 1);
+                blocks[row][new_col] = block;
+                addedBlocks.push_back(block);
+                
+                
+                
+            }
+            else
+            {
+                Block* block = Block::createBlock((BlockType)random((int)BlockType::APPLE, (int)BlockType::ORANGE), {row, new_col});
+                
+                Vec2 newPosition = Vec2(row * _BlockSize.width + _BlockSize.width * 0.5f,
+                                        new_col * _BlockSize.height + _BlockSize.height * 0.5f);
+                
+                block->setPositionX(newPosition.x);
+                block->setPositionY(getContentSize().height + (MAX_COLS - blanks) * _BlockSize.height * 0.5f);
+                block->gridPosition = {row, new_col};
+                block->runAction(EaseBounceOut::create(MoveTo::create(0.7f, newPosition)));
+                
+                addChild(block, 1);
+                blocks[row][new_col] = block;
+                addedBlocks.push_back(block);
+            }
             
-            Vec2 newPosition = Vec2(row * _BlockSize.width + _BlockSize.width * 0.5f,
-                                    new_col * _BlockSize.height + _BlockSize.height * 0.5f);
-            
-            block->setPositionX(newPosition.x);
-            block->setPositionY(getContentSize().height + (MAX_COLS - blanks) * _BlockSize.height * 0.5f);
-            block->gridPosition = {row, new_col};
-            block->runAction(EaseBounceOut::create(MoveTo::create(0.7f, newPosition)));
-            
-            addChild(block, 1);
-            blocks[row][new_col] = block;
-            addedBlocks.push_back(block);
         }
     }
-    
+    //checkimg the new added blocks runtime if they are matched
     runAction(Sequence::create(
                                DelayTime::create(0.75f),
                                CallFunc::create(CC_CALLBACK_0(Grid::resolveMatchesForBlocks, this, addedBlocks)),
@@ -332,6 +404,7 @@ void Grid::fillBlanks()
 }
 Grid* Grid::createGrid(int rows, int cols)
 {
+    
     Grid* grid = new (std::nothrow) Grid();
     
     if (grid && grid->init())
