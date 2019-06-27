@@ -101,6 +101,8 @@ int Grid::findMatches(Block* block, std::vector<Block*> &matches, bool isRoot)
         matchcount++;
         store_block[matchcount] = blocks[row][gp.col];
     }
+    
+    
     if (matchcount >= MAX_MATCHES)
     {
         for (int i = 2; i <= matchcount; i++)
@@ -108,7 +110,10 @@ int Grid::findMatches(Block* block, std::vector<Block*> &matches, bool isRoot)
             matches.push_back(store_block[i]);
         }
     }
-
+    
+    
+    
+    
     int col = gp.col;
     matchcount = 1;
     while(--col > -1 && blocks[gp.row][col] && blocks[gp.row][col]->getType() == block->getType())

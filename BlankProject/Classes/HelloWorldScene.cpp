@@ -24,7 +24,7 @@
 
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
-#include "AppDelegate.h"
+
 USING_NS_CC;
 
 Scene* HelloWorld::createScene()
@@ -96,7 +96,6 @@ bool HelloWorld::onTouchBegan(Touch* touch, Event* event)
         // If blocks are neighbours try to swap them
         if (grid->areNeighbours(activeBlock, block))
         {
-          
             swapBlocks(block, activeBlock);
             runAction(Sequence::create(
                                        DelayTime::create(0.3f), // Wait for the animation to end
@@ -114,23 +113,15 @@ bool HelloWorld::onTouchBegan(Touch* touch, Event* event)
             activeBlock->setActive(true);
         }
     }
-    else //
+    else
     {
         activeBlock = block;
         activeBlock->setActive(true);
     }
+    
     return true;
 }
-void HelloWorld::lockTouches(float time)
-{
-    unschedule(CC_SCHEDULE_SELECTOR(HelloWorld::unlockTouches));
-    scheduleOnce(CC_SCHEDULE_SELECTOR(HelloWorld::unlockTouches), 0.5f);
-    isBusy = true;
-}
-void HelloWorld::unlockTouches(float dt)
-{
-    isBusy = false;
-}
+
 // Detect swipes
 void HelloWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
 {
@@ -138,7 +129,7 @@ void HelloWorld::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
 //        return;
     
     
-    if (activeBlock == nullptr )
+    if (activeBlock == nullptr)
         return;
     
     Vec2 touchDistance = touch->getLocation() - touch->getPreviousLocation();

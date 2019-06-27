@@ -33,10 +33,6 @@
 class HelloWorld : public cocos2d::Scene
 {
 public:
-    bool isBusy = false;
-    
-    
-    
     static cocos2d::Scene* createScene();
 
     virtual bool init();
@@ -47,9 +43,6 @@ public:
     
     Grid* grid = nullptr;
     Block* activeBlock = nullptr;
-    
-    void lockTouches(float time);
-    void unlockTouches(float dt);
     
     
     void swapBlocks(Block* first, Block* second);
