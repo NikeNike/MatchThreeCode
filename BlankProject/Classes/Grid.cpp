@@ -247,12 +247,12 @@ void Grid::generateRandomBlocks()
     {
         for (int row = 0; row < MAX_ROWS; row++)
         {
-            Block* block = Block::createBlock((BlockType)random((int)BlockType::RED, (int)BlockType::PINK), {row, col});
+            Block* block = Block::createBlock((BlockType)random((int)BlockType::APPLE, (int)BlockType::ORANGE), {row, col});
             
             // Make sure there are no initial groups of matches
             while(checkForMatches(block) == true)
             {
-                block->setType((BlockType)random((int)BlockType::RED, (int)BlockType::PINK));
+                block->setType((BlockType)random((int)BlockType::APPLE, (int)BlockType::ORANGE));
             }
             
             block->setPosition(row * _BlockSize.width + _BlockSize.width * 0.5f,
@@ -309,7 +309,7 @@ void Grid::fillBlanks()
         {
             int new_col = MAX_COLS - blanks - 1;
             
-            Block* block = Block::createBlock((BlockType)random((int)BlockType::RED, (int)BlockType::PINK), {row, new_col});
+            Block* block = Block::createBlock((BlockType)random((int)BlockType::APPLE, (int)BlockType::ORANGE), {row, new_col});
             
             Vec2 newPosition = Vec2(row * _BlockSize.width + _BlockSize.width * 0.5f,
                                     new_col * _BlockSize.height + _BlockSize.height * 0.5f);

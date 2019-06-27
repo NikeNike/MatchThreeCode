@@ -17,7 +17,7 @@ const char* const EVENT_GRID_READY = "event.custom.grid_is_ready";
 const char* const EVENT_GRID_HAVE_MATCHES = "event.custom.grid_have_matches";
 // Size of the grid
 const int MAX_ROWS = 5;
-const int MAX_COLS = 4;
+const int MAX_COLS = 5;
 const int SWIPE_TRESHOLD = 5; // Minimum pixels for swipe move
 
 const int MAX_MATCHES = 3;
@@ -27,22 +27,18 @@ struct EventMatchesData {
 };
 enum class BlockType : int
 {
-    RED = 0,
-    YELLOW,
-    PINK,
-    GREEN,
-    ORANGE,
-    WHITE
+    APPLE = 0,
+    WATERMELON,
+    GAVAVA,
+    ORANGE
 
 };
 const char* const BlockTypeToFrameName[]
 {
-    "red.png",
-    "yellow.png",
-    "pink.png",
-    "green.png",
-    "orange.png",
-    "white.png"
+    "fruit-1.png",
+    "fruit-2.png",
+    "fruit-3.png",
+    "fruit-4.png"
 };
     
     
