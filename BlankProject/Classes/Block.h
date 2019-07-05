@@ -18,7 +18,7 @@ class Block : public cocos2d::Node
 public:
 	
     virtual void onEnter();
-    
+    void explode();
     
  
     

@@ -28,8 +28,8 @@ public:
     
     void rest_store_value();
     
-    
-    
+    int Which_Type;
+    int turn=0;
     
     void generateRandomBlocks();
     bool checkForMatches(Block* block);

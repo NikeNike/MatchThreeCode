@@ -19,32 +19,36 @@ Block* Block::createBlock(BlockType type, GridPosition gridPosition)
         block->autorelease();
         block->type = type;
         block->gridPosition = gridPosition;
-        
         return block;
-    } else
+    }
+    else
         CC_SAFE_DELETE(block);
     
     return nullptr;
+}
+void Block::explode()
+{
+    auto explodeParticles = ParticleSystemQuad::create("explode.plist");
+    explodeParticles->setAutoRemoveOnFinish(true);
+    explodeParticles->setPosition(getPosition());
+    getParent()->addChild(explodeParticles, 10);
 }
 
 void Block::setType(BlockType type)
 {
     this->type = type;
-    
     if (blockSprite != nullptr)
     {
         blockSprite->setTexture(BlockTypeToFrameName[static_cast<int>(type)]);
     }
-    
 }
 void Block::remove_animation(float start_animation, float end_animation)
 {
-    runAction(Sequence::create(MoveTo::create(1, Vec2(start_animation,end_animation)),NULL));
+    runAction(Sequence::create(ScaleTo::create(0.5, 0), MoveTo::create(1, Vec2(start_animation,end_animation)),NULL));
 }
 void Block::onEnter()
 {
     Node::onEnter();
-    
     setContentSize(_BlockSize);
     setAnchorPoint(Vec2::ANCHOR_MIDDLE);
 //    if(Box_check_odd%2==0)
@@ -74,4 +78,3 @@ void Block::setActive(bool isActive)
     //    else
     //        backgroundSprite->setSpriteFrame("back.png");
 }
-

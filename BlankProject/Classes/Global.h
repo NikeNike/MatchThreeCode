@@ -33,7 +33,10 @@ enum class BlockType : int
     WATERMELON,
     GAVAVA,
     ORANGE,
-    VERTICAL_BOOSTER,
+    VERTICAL_BOOSTER_APPLE,
+    VERTICAL_BOOSTER_WATERMELON,
+    VERTICAL_BOOSTER_GUAVA,
+    VERTICAL_BOOSTER_ORANGE,
     HORIZONTAL_BOOSTER
 
 };
@@ -44,6 +47,9 @@ const char* const BlockTypeToFrameName[]
     "fruit-3.png",
     "fruit-4.png",
     "fruit-1-effect-2.png",
+    "fruit-2-effect-2.png",
+    "fruit-3-effect-2.png",
+    "fruit-4-effect-2.png",
     "fruit-1-effect-1.png"
 };
     

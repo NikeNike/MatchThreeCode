@@ -217,6 +217,7 @@ void HelloWorld::resolveMatchesForBlock(Block* block)
     
     std::vector<Block*> matches;
     int num_matches = grid->findMatches(block, matches);
+    CCLOG("Num matches %d",num_matches);
     //addScore(num_matches);
     
     CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("pop.wav");
@@ -233,10 +234,6 @@ void HelloWorld::swapBlocks(Block* first, Block* second)
     first->runAction(MoveTo::create(0.3f, second->getPosition()));
     second->runAction(MoveTo::create(0.3f, first->getPosition()));
 }
-
-
-
-
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
     //Close the cocos2d-x game scene and quit the application
